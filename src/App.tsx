@@ -21,6 +21,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+declare const global: {HermesInternal: boolean};
+
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.lighter,

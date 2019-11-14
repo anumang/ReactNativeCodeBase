@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
   },
@@ -25,6 +25,13 @@ module.exports = {
   },
   globals: {
     global: true,
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
   rules: {
     // Prettier
@@ -70,6 +77,8 @@ module.exports = {
     'jest/valid-expect': 2,
 
     // Overries
-    'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
+    'react/jsx-filename-extension': [1, {extensions: ['.ts', '.tsx']}],
+    'import/order': 0,
+    'object-curly-spacing': 0,
   },
 };
