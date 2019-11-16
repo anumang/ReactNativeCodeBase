@@ -3,19 +3,20 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
   extends: [
     // disabled due to issue jest-community/eslint-plugin-jest/#338
     // @react-native-community,
     'airbnb',
-    'prettier/react',
   ],
   plugins: [
     'import',
-    'simple-import-sort',
+    'eslint-plugin-import-order-alphabetical',
     'eslint-comments',
     'react-native',
-    'prettier',
     'jest',
   ],
   env: {
@@ -27,27 +28,24 @@ module.exports = {
     global: true,
   },
   rules: {
-    // Prettier
-    'prettier/prettier': 2,
-
     // Import
     'import/order': [
       2,
       {
         groups: [
+          'builtin',
+          'external',
           'index',
           'parent',
           'sibling',
-          'internal',
-          'external',
-          'builtin',
+          'internal'
         ],
         'newlines-between': 'always',
       },
     ],
 
-    // Simple Import Sort Plugin
-    'simple-import-sort/sort': 'error',
+    // Import Order Alpahbetically
+    'import-order-alphabetical/order': 2,
 
     // @react-native-community, ESLint Comments Plugin
     'eslint-comments/no-aggregating-enable': 1,
@@ -71,5 +69,14 @@ module.exports = {
 
     // Overries
     'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
+    'react/jsx-props-no-spreading': 0,
+    'react-native/no-raw-text': 0,
+    'implicit-arrow-linebreak': 0,
+    'comma-dangle': ['error', {
+      'functions': 'never',
+      'arrays': 'always-multiline',
+      'objects': 'always-multiline',
+    }],
+    'react/jsx-closing-bracket-location': [1, {selfClosing: 'props-aligned', nonEmpty: 'after-props'}]
   },
 };
