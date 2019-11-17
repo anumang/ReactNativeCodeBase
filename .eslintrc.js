@@ -4,13 +4,15 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {
-      legacyDecorators: true
+      jsx: true,
+      legacyDecorators: true,
     }
   },
   extends: [
     // disabled due to issue jest-community/eslint-plugin-jest/#338
     // @react-native-community,
     'airbnb',
+    'plugin:jsx-control-statements/recommended',
   ],
   plugins: [
     'import',
@@ -77,6 +79,7 @@ module.exports = {
       'arrays': 'always-multiline',
       'objects': 'always-multiline',
     }],
-    'react/jsx-closing-bracket-location': [1, {selfClosing: 'props-aligned', nonEmpty: 'after-props'}]
+    'react/jsx-closing-bracket-location': [1, {selfClosing: 'props-aligned', nonEmpty: 'after-props'}],
+    'react/jsx-no-undef': [2, { 'allowGlobals': true }],
   },
 };

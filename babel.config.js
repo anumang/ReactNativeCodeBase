@@ -3,5 +3,8 @@ module.exports = {
     'module:metro-react-native-babel-preset',
     'module:react-native-dotenv',
   ],
-  plugins: [['@babel/plugin-proposal-decorators', { legacy: true }]],
+  plugins: [
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+    'jsx-control-statements',
+  ],
 };
