@@ -5,14 +5,17 @@ import { SafeAreaView } from 'react-navigation';
 
 import { Touchable } from '../../_common/components/touchable';
 import { withNavigation } from '../../_common/context/with-navigation';
+import { withTranslation } from '../../_common/context/with-translation';
 
 @withNavigation()
+@withTranslation()
 class Landing extends Component {
   render() {
-    const { reset, navigation: { navigate } } = this.props;
+    const { t, reset, navigation: { navigate } } = this.props;
     return (
       <SafeAreaView>
-        <Text>Hello Landing</Text>
+        <Text>{t('hello')}</Text>
+        <Text>Landing</Text>
         <Touchable onPress={() => navigate('Login')}>
           <Text>Login</Text>
         </Touchable>
@@ -26,6 +29,7 @@ class Landing extends Component {
 
 Landing.propTypes = {
   reset: PropTypes.func,
+  t: PropTypes.func.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,

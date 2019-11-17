@@ -161,7 +161,6 @@
 				DD14C5C9729BB292E81E1714 /* Pods-ReactNativeCodebaseTests.debug.xcconfig */,
 				3CA19A9604CB048524CC90B8 /* Pods-ReactNativeCodebaseTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +307,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

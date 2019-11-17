@@ -30,7 +30,11 @@ export const NavigationProvider = ({ children }) => {
 };
 
 NavigationProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
+
+NavigationProvider.defaultProps = {
+  children: null,
 };
 
 export default NavigationProvider;

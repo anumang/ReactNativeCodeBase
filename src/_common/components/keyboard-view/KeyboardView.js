@@ -9,7 +9,7 @@ const KeyboardView = ({ children }) => {
   }
 
   return (
-    <KeyboardAvoidingView behavior="padding">
+    <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
       {children}
     </KeyboardAvoidingView>
   );

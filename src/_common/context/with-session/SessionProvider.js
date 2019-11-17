@@ -30,7 +30,11 @@ export const SessionProvider = ({ children }) => {
 };
 
 SessionProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
+
+SessionProvider.defaultProps = {
+  children: null,
 };
 
 export default SessionProvider;
