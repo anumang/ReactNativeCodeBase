@@ -11,6 +11,7 @@ import { withSession } from '../_common/context/with-session';
 import { Home } from './home';
 import { Landing } from './landing';
 import { Login } from './login';
+import { Profile } from './profile';
 
 const LandingNavigator = createStackNavigator({
   Landing,
@@ -22,8 +23,8 @@ const PagesNavigator = createBottomTabNavigator(
     Home: createStackNavigator({
       Home,
     }),
-    Home2: createStackNavigator({
-      Home2: Home,
+    Profile: createStackNavigator({
+      Profile,
     }),
   },
   {
