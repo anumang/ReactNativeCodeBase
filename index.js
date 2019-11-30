@@ -5,4 +5,4 @@ import { APP_NAME } from 'react-native-dotenv';
 
 import App from './src';
 
-AppRegistry.registerComponent(APP_NAME || 'App', () => App);
+AppRegistry.registerComponent(APP_NAME, () => App);

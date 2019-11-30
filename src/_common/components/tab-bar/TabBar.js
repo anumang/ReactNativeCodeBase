@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import { Image, Keyboard } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { Keyboard } from 'react-native';
 
 import { navIcons } from '../../assets/icons';
 import { Touchable } from '../touchable';
+
+import { SafeAreaViewStyled, IconImageStyled, IconImageActiveStyled } from './TabBar.styled';
 
 const TabBar = ({
   onTabPress,
@@ -38,7 +39,7 @@ const TabBar = ({
   console.debug('Tab bar rendering with routes:', routes);
 
   return (
-    <SafeAreaView
+    <SafeAreaViewStyled
       forceInset={{
         bottom: 'always',
         top: 'never',
@@ -47,11 +48,6 @@ const TabBar = ({
         const { key } = route;
         const active = index === current;
 
-        if (active) {
-          console.debug('TODO: Tab bar needs improvements.');
-          console.debug('Rendered with active route:', route);
-        }
-
         return (
           <Touchable
             key={key}
@@ -59,11 +55,13 @@ const TabBar = ({
               onTabPress({
                 route,
               })}>
-            <Image source={navIcons[key]} />
+            {active
+              ? <IconImageActiveStyled source={navIcons[key]} />
+              : <IconImageStyled source={navIcons[key]} />}
           </Touchable>
         );
       })}
-    </SafeAreaView>
+    </SafeAreaViewStyled>
   );
 };
 

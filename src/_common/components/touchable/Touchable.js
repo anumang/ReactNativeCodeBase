@@ -2,24 +2,24 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Platform,
-  TouchableNativeFeedback,
-  TouchableOpacity,
   View
 } from 'react-native';
+
+import { TouchableNativeFeedbackStyled, TouchableOpacityStyled } from './Touchable.styled';
 
 const Touchable = ({ children, onPress, style }) => {
   if (Platform.OS === 'android') {
     return (
-      <TouchableNativeFeedback onPress={onPress}>
+      <TouchableNativeFeedbackStyled onPress={onPress}>
         <View style={style}>{children}</View>
-      </TouchableNativeFeedback>
+      </TouchableNativeFeedbackStyled>
     );
   }
 
   return (
-    <TouchableOpacity style={style} onPress={onPress}>
+    <TouchableOpacityStyled style={style} onPress={onPress}>
       {children}
-    </TouchableOpacity>
+    </TouchableOpacityStyled>
   );
 };
 
