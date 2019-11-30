@@ -55,9 +55,14 @@ const TabBar = ({
               onTabPress({
                 route,
               })}>
-            {active
-              ? <IconImageActiveStyled source={navIcons[key]} />
-              : <IconImageStyled source={navIcons[key]} />}
+            <Choose>
+              <When condition={active}>
+                <IconImageActiveStyled source={navIcons[key]} />
+              </When>
+              <Otherwise>
+                <IconImageStyled source={navIcons[key]} />
+              </Otherwise>
+            </Choose>
           </Touchable>
         );
       })}
