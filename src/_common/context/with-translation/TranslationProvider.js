@@ -22,10 +22,14 @@ export const TranslationProvider = ({ children }) => {
     }
   });
 
-  useEffect(async () => {
-    await handleLocaleChange();
+  useEffect(() => {
+    const initListener = async () => {
+      await handleLocaleChange();
 
-    localizeAddEventListener('change', handleLocaleChange);
+      localizeAddEventListener('change', handleLocaleChange);
+    };
+
+    initListener();
 
     return () => {
       localizeRemoveEventListener('change', handleLocaleChange);
