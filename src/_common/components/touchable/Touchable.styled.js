@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { layout } from '../../styles';
+import { layout } from '../../theme';
 
 const styles = {
   alignItems: 'center',

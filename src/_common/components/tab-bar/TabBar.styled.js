@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors, shadow, layout } from '../../styles';
+import { colors, shadow, layout } from '../../theme';
 
 export const SafeAreaViewStyled = styled.SafeAreaView({
   ...shadow,
