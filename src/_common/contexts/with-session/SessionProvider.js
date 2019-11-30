@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 
-import { Session } from '../../service/session';
+import { Session } from '../../services/session';
 
 export const SessionContext = React.createContext({});
 

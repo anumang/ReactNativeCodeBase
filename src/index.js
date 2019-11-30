@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { NavigationProvider } from './_common/context/with-navigation';
-import { SessionProvider } from './_common/context/with-session';
-import { TranslationProvider } from './_common/context/with-translation';
+import { NavigationProvider } from './_common/contexts/with-navigation';
+import { SessionProvider } from './_common/contexts/with-session';
+import { TranslationProvider } from './_common/contexts/with-translation';
 import Pages from './pages';
 
 const App = () => (

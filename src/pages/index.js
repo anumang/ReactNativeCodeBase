@@ -6,8 +6,8 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import { KeyboardView } from '../_common/components/keyboard-view';
 import { TabBar } from '../_common/components/tab-bar';
-import { withNavigation } from '../_common/context/with-navigation';
-import { withSession } from '../_common/context/with-session';
+import { withNavigation } from '../_common/contexts/with-navigation';
+import { withSession } from '../_common/contexts/with-session';
 
 import { Home } from './home';
 import { Landing } from './landing';

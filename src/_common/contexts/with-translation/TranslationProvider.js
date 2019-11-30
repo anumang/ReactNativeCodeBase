@@ -5,7 +5,7 @@ import { addEventListener as localizeAddEventListener, removeEventListener as lo
 
 
 import { Spinner } from '../../components/spinner';
-import { Translation } from '../../service/translation';
+import { Translation } from '../../services/translation';
 
 export const TranslationProvider = ({ children }) => {
   const [internal, setInternal] = useState({

@@ -4,8 +4,8 @@ import { Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
 import { Touchable } from '../../_common/components/touchable';
-import { withNavigation } from '../../_common/context/with-navigation';
-import { withTranslation } from '../../_common/context/with-translation';
+import { withNavigation } from '../../_common/contexts/with-navigation';
+import { withTranslation } from '../../_common/contexts/with-translation';
 
 @withNavigation()
 @withTranslation()

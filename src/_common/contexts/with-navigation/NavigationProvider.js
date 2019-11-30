@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 
-import { Navigation } from '../../service/navigation';
+import { Navigation } from '../../services/navigation';
 
 export const NavigationContext = React.createContext({});
 
