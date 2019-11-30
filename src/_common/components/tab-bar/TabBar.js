@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { Keyboard } from 'react-native';
 
-import { navIcons } from '../../assets/icons';
+import { Icon } from '../icon';
 import { Touchable } from '../touchable';
 
-import { SafeAreaViewStyled, IconImageStyled, IconImageActiveStyled } from './TabBar.styled';
+import { SafeAreaViewStyled } from './TabBar.styled';
 
 const TabBar = ({
   onTabPress,
@@ -55,14 +55,7 @@ const TabBar = ({
               onTabPress({
                 route,
               })}>
-            <Choose>
-              <When condition={active}>
-                <IconImageActiveStyled source={navIcons[key]} />
-              </When>
-              <Otherwise>
-                <IconImageStyled source={navIcons[key]} />
-              </Otherwise>
-            </Choose>
+            <Icon iconName={key} state={active ? 'active' : 'disabled'} />
           </Touchable>
         );
       })}

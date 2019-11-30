@@ -7,17 +7,17 @@ import {
 
 import { TouchableNativeFeedbackStyled, TouchableOpacityStyled } from './Touchable.styled';
 
-const Touchable = ({ children, onPress, style }) => {
+const Touchable = ({ children, onPress }) => {
   if (Platform.OS === 'android') {
     return (
       <TouchableNativeFeedbackStyled onPress={onPress}>
-        <View style={style}>{children}</View>
+        <View>{children}</View>
       </TouchableNativeFeedbackStyled>
     );
   }
 
   return (
-    <TouchableOpacityStyled style={style} onPress={onPress}>
+    <TouchableOpacityStyled onPress={onPress}>
       {children}
     </TouchableOpacityStyled>
   );
@@ -26,13 +26,11 @@ const Touchable = ({ children, onPress, style }) => {
 Touchable.propTypes = {
   children: PropTypes.node,
   onPress: PropTypes.func,
-  style: PropTypes.shape({}),
 };
 
 Touchable.defaultProps = {
   children: null,
   onPress: () => {},
-  style: {},
 };
 
 export default Touchable;

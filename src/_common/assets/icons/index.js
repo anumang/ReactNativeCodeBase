@@ -1,10 +1,8 @@
 import tabHome from './tab_home.png';
 
-export const navIcons = {
+const icons = {
   Home: tabHome,
   Profile: tabHome,
 };
 
-export default {
-  navIcons,
-};
+export default icons;
