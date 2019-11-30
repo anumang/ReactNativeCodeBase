@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { KeyboardAvoidingView, Platform, View } from 'react-native';
+import { Platform, View } from 'react-native';
 
+import { KeyboardAvoidingViewStyled } from './KeyboardView.styled';
 
 const KeyboardView = ({ children }) => {
   if (Platform.OS === 'android') {
@@ -9,9 +10,9 @@ const KeyboardView = ({ children }) => {
   }
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+    <KeyboardAvoidingViewStyled behavior="padding">
       {children}
-    </KeyboardAvoidingView>
+    </KeyboardAvoidingViewStyled>
   );
 };
 
