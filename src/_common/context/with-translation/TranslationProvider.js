@@ -4,6 +4,7 @@ import { IntlProvider } from 'react-intl';
 import { addEventListener as localizeAddEventListener, removeEventListener as localizeRemoveEventListener, findBestAvailableLanguage } from 'react-native-localize';
 
 
+import { Spinner } from '../../components/spinner';
 import { Translation } from '../../service/translation';
 
 export const TranslationProvider = ({ children }) => {
@@ -37,13 +38,18 @@ export const TranslationProvider = ({ children }) => {
   }, []);
 
   return (
-    <If condition={internal.locale}>
-      <IntlProvider
-        locale={internal.locale}
-        messages={internal.messages}>
-        {children}
-      </IntlProvider>
-    </If>
+    <Choose>
+      <When condition={internal.locale}>
+        <IntlProvider
+          locale={internal.locale}
+          messages={internal.messages}>
+          {children}
+        </IntlProvider>
+      </When>
+      <Otherwise>
+        <Spinner />
+      </Otherwise>
+    </Choose>
   );
 };
 

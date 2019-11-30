@@ -13,9 +13,10 @@ class Translation {
   }
 
   static async loadTranslationsByLocale(locale) {
-    const translations = await new Promise((resolve) => resolve(Translation.localeTranslations[
-      Translation.getAvailableLocales().indexOf(locale)
-    ]));
+    const translations = await new Promise((resolve) =>
+      setTimeout(() => resolve(Translation.localeTranslations[
+        Translation.getAvailableLocales().indexOf(locale)
+      ]), 500));
 
     return translations;
   }
