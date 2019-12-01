@@ -12,11 +12,15 @@ const styles = StyleSheet.create({
   main: {
     alignItems: 'stretch',
     flex: 1,
+    justifyContent: 'center',
+    padding: 50,
   },
   header: {
-    flexDirection: 'column',
+    paddingVertical: 50,
+    alignItems: 'center',
   },
   footer: {
+    paddingVertical: 50,
     flexDirection: 'row',
   },
 });
@@ -25,7 +29,6 @@ const styles = StyleSheet.create({
 @withTranslation()
 class Landing extends Component {
   static propTypes = {
-    reset: PropTypes.func,
     t: PropTypes.func.isRequired,
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired,
@@ -33,11 +36,10 @@ class Landing extends Component {
   };
 
   static defaultProps = {
-    reset: () => {},
   };
 
   render() {
-    const { t, reset, navigation: { navigate } } = this.props;
+    const { t, navigation: { navigate } } = this.props;
     return (
       <SafeAreaView
         style={styles.main}
@@ -46,12 +48,10 @@ class Landing extends Component {
           top: 'never',
         }}>
         <View style={styles.header}>
-          <Text text={t('hello')} />
-          <Text text="Landing" />
+          <Text text={t('welcome')} size="heading2" />
         </View>
         <View style={styles.footer}>
-          <Button text="Login" onPress={() => navigate('Login')} primary />
-          <Button text="Home" onPress={() => reset('Pages')} />
+          <Button text={t('already_member')} onPress={() => navigate('Login')} primary />
         </View>
       </SafeAreaView>
     );

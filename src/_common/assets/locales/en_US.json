@@ -1,3 +1,7 @@
 {
-  "hello": "hi"
+  "welcome": "WELCOME",
+  "signin": "SIGN IN",
+  "already_member": "Already Member",
+  "email": "Email",
+  "password": "Password"
 }

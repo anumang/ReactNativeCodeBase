@@ -10,6 +10,7 @@ export const colors = {
   text: '#141414',
   textPrimary: '#f7f7f7',
   textSecondary: '#039dea',
+  error: '#D62839',
 };
 
 export const layout = {
@@ -17,6 +18,7 @@ export const layout = {
   iconHeight: 20,
   borderRadius: 5,
   borderWidth: 1,
+  inputLineHeight: 60,
 };
 
 export const typography = {
