@@ -24,6 +24,18 @@ const styles = StyleSheet.create({
 @withNavigation()
 @withTranslation()
 class Landing extends Component {
+  static propTypes = {
+    reset: PropTypes.func,
+    t: PropTypes.func.isRequired,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
+  static defaultProps = {
+    reset: () => {},
+  };
+
   render() {
     const { t, reset, navigation: { navigate } } = this.props;
     return (
@@ -45,17 +57,5 @@ class Landing extends Component {
     );
   }
 }
-
-Landing.propTypes = {
-  reset: PropTypes.func,
-  t: PropTypes.func.isRequired,
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
-
-Landing.defaultProps = {
-  reset: () => {},
-};
 
 export default Landing;

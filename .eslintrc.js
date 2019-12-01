@@ -81,5 +81,6 @@ module.exports = {
     }],
     'react/jsx-closing-bracket-location': [1, {selfClosing: 'props-aligned', nonEmpty: 'after-props'}],
     'react/jsx-no-undef': [2, { 'allowGlobals': true }],
+    'react/static-property-placement': [0],
   },
 };
