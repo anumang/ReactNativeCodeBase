@@ -36,8 +36,6 @@ const TabBar = ({
     return null;
   }
 
-  console.debug('Tab bar rendering with routes:', routes);
-
   return (
     <SafeAreaViewStyled
       forceInset={{

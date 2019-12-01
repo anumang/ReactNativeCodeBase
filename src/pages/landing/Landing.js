@@ -1,11 +1,25 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
-import { Touchable } from '../../_common/components/touchable';
+import { Button } from '../../_common/components/button';
+import { Text } from '../../_common/components/text';
 import { withNavigation } from '../../_common/contexts/with-navigation';
 import { withTranslation } from '../../_common/contexts/with-translation';
+
+const styles = StyleSheet.create({
+  main: {
+    alignItems: 'stretch',
+    flex: 1,
+  },
+  header: {
+    flexDirection: 'column',
+  },
+  footer: {
+    flexDirection: 'row',
+  },
+});
 
 @withNavigation()
 @withTranslation()
@@ -13,15 +27,20 @@ class Landing extends Component {
   render() {
     const { t, reset, navigation: { navigate } } = this.props;
     return (
-      <SafeAreaView>
-        <Text>{t('hello')}</Text>
-        <Text>Landing</Text>
-        <Touchable onPress={() => navigate('Login')}>
-          <Text>Login</Text>
-        </Touchable>
-        <Touchable onPress={() => reset('Pages')}>
-          <Text>Home</Text>
-        </Touchable>
+      <SafeAreaView
+        style={styles.main}
+        forceInset={{
+          bottom: 'always',
+          top: 'never',
+        }}>
+        <View style={styles.header}>
+          <Text text={t('hello')} />
+          <Text text="Landing" />
+        </View>
+        <View style={styles.footer}>
+          <Button text="Login" onPress={() => navigate('Login')} primary />
+          <Button text="Home" onPress={() => reset('Pages')} />
+        </View>
       </SafeAreaView>
     );
   }

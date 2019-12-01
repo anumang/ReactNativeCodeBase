@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { layout } from '../../theme';
+import { colors, layout } from '../../theme';
 
 const styles = {
   alignItems: 'center',
@@ -9,6 +9,23 @@ const styles = {
   padding: layout.margin,
 };
 
-export const TouchableNativeFeedbackStyled = styled.TouchableNativeFeedback(styles);
+export const ViewStyled = styled.View(({ borderColor, backgroundColor }) => ({
+  ...(backgroundColor ? { backgroundColor: colors[backgroundColor] } : {}),
+  ...(borderColor ? {
+    borderWidth: layout.borderWidth,
+    borderRadius: layout.borderRadius,
+    borderColor: colors[borderColor],
+  } : {}),
+}));
 
-export const TouchableOpacityStyled = styled.TouchableOpacity(styles);
+export const TouchableOpacityStyled = styled.TouchableOpacity((
+  { borderColor, backgroundColor }
+) => ({
+  ...styles,
+  ...(backgroundColor ? { backgroundColor: colors[backgroundColor] } : {}),
+  ...(borderColor ? {
+    borderColor: colors[borderColor],
+    borderRadius: layout.borderRadius,
+    borderWidth: layout.borderWidth,
+  } : {}),
+}));
