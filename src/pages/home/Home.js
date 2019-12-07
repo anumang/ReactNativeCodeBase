@@ -3,20 +3,34 @@ import React from 'react';
 import { Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
+import { Modal } from '../../_common/components/modal';
 import { NavBar } from '../../_common/components/nav-bar';
 
-const Home = ({ navigation: { getParam } }) => (
-  <SafeAreaView>
+const Home = ({ navigation: { getParam, setParams } }) => (
+  <SafeAreaView
+    forceInset={{
+      bottom: 'always',
+      top: 'never',
+    }}>
     <Text>
       Hello Home
-      {getParam('showNotification') ? ' & This is the notification' : ''}
     </Text>
+    <Modal
+      onRequestClose={() => setParams({
+        showNotification: false,
+      })}
+      visible={getParam('showNotification')}>
+      <Text>
+        This is your notification
+      </Text>
+    </Modal>
   </SafeAreaView>
 );
 
 Home.propTypes = {
   navigation: PropTypes.shape({
     getParam: PropTypes.func.isRequired,
+    setParams: PropTypes.func.isRequired,
   }).isRequired,
 };
 
