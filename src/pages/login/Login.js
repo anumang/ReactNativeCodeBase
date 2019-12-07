@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-navigation';
 
 import { Button } from '../../_common/components/button';
 import { TextField } from '../../_common/components/form-fields';
+import { NavBar } from '../../_common/components/nav-bar';
 import { Text } from '../../_common/components/text';
 import { withNavigation } from '../../_common/contexts/with-navigation';
 import { withTranslation } from '../../_common/contexts/with-translation';
@@ -82,5 +83,9 @@ class Login extends Component {
     );
   }
 }
+
+Login.navigationOptions = {
+  header: () => <NavBar back title="Login" />,
+};
 
 export default Login;

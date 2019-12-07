@@ -10,7 +10,7 @@ const Icon = ({ iconName, state }) => (
 );
 
 Icon.propTypes = {
-  iconName: PropTypes.oneOf(['Home', 'Profile']).isRequired,
+  iconName: PropTypes.oneOf(['Home', 'Profile', 'ArrowBack']).isRequired,
   state: PropTypes.oneOf(['active', 'disabled']),
 };
 

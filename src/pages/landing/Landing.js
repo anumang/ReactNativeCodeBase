@@ -58,4 +58,8 @@ class Landing extends Component {
   }
 }
 
+Landing.navigationOptions = {
+  header: () => null,
+};
+
 export default Landing;

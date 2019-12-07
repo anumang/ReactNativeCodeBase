@@ -19,6 +19,7 @@ export const layout = {
   borderRadius: 5,
   borderWidth: 1,
   inputLineHeight: 60,
+  navBarHeight: 60,
 };
 
 export const typography = {

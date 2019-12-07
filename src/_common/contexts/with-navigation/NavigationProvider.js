@@ -18,11 +18,16 @@ export const NavigationProvider = ({ children }) => {
     return true;
   }, []);
 
+  const goBack = useCallback(() => {
+    Navigation.goBack();
+  }, []);
+
   return (
     <NavigationContext.Provider
       value={{
         setNavigator,
         reset,
+        goBack,
       }}>
       {children}
     </NavigationContext.Provider>
