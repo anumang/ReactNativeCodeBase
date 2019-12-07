@@ -37,7 +37,7 @@ Home.propTypes = {
 Home.navigationOptions = ({ navigation: { setParams } }) => ({
   header: () => (
     <NavBar
-      title="Home"
+      titleKey="nav_home_title"
       notification={{
         onPress: () => setParams({
           showNotification: true,

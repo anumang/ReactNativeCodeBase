@@ -85,7 +85,7 @@ class Login extends Component {
 }
 
 Login.navigationOptions = {
-  header: () => <NavBar back title="Login" />,
+  header: () => <NavBar back titleKey="nav_login_title" />,
 };
 
 export default Login;

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import { withNavigation } from '../../contexts/with-navigation';
+import { withTranslation } from '../../contexts/with-translation';
 import { Icon } from '../icon';
 import { Text } from '../text';
 import { Touchable } from '../touchable';
@@ -11,6 +12,7 @@ import {
 } from './NavBar.styled';
 
 @withNavigation()
+@withTranslation()
 class NavBar extends Component {
  static propTypes = {
    back: PropTypes.bool,
@@ -18,7 +20,8 @@ class NavBar extends Component {
      onPress: PropTypes.func,
      count: PropTypes.number,
    }),
-   title: PropTypes.string.isRequired,
+   t: PropTypes.func.isRequired,
+   titleKey: PropTypes.string.isRequired,
    goBack: PropTypes.func.isRequired,
  }
 
@@ -29,7 +32,7 @@ class NavBar extends Component {
 
  render() {
    const {
-     back, title, goBack, notification: { onPress, count },
+     t, back, titleKey, goBack, notification: { onPress, count },
    } = this.props;
 
    return (
@@ -46,7 +49,7 @@ class NavBar extends Component {
              </Touchable>
            </ViewStyledLeft>
          </If>
-         <Text text={title} />
+         <Text text={t(titleKey)} />
          <If condition={onPress}>
            <ViewStyledRight>
              <Touchable onPress={() => onPress()}>

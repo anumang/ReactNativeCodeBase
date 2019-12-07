@@ -3,5 +3,8 @@
   "signin": "SIGN IN",
   "already_member": "Already Member",
   "email": "Email",
-  "password": "Password"
+  "password": "Password",
+  "nav_home_title": "Home",
+  "nav_login_title": "Login",
+  "nav_profile_title": "Profile"
 }
