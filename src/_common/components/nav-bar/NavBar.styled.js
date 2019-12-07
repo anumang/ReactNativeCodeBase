@@ -14,8 +14,14 @@ export const ViewStyled = styled.View({
   paddingVertical: layout.iconHeight,
 });
 
-export const ViewStyledArrow = styled.View({
+export const ViewStyledLeft = styled.View({
   height: layout.navBarHeight,
   position: 'absolute',
   left: '0',
+});
+
+export const ViewStyledRight = styled.View({
+  height: layout.navBarHeight,
+  position: 'absolute',
+  right: '0',
 });

@@ -6,22 +6,31 @@ import { Icon } from '../icon';
 import { Text } from '../text';
 import { Touchable } from '../touchable';
 
-import { SafeAreaViewStyled, ViewStyled, ViewStyledArrow } from './NavBar.styled';
+import {
+  SafeAreaViewStyled, ViewStyled, ViewStyledLeft, ViewStyledRight
+} from './NavBar.styled';
 
 @withNavigation()
 class NavBar extends Component {
  static propTypes = {
    back: PropTypes.bool,
+   notification: PropTypes.shape({
+     onPress: PropTypes.func,
+     count: PropTypes.number,
+   }),
    title: PropTypes.string.isRequired,
    goBack: PropTypes.func.isRequired,
  }
 
  static defaultProps = {
    back: false,
+   notification: {},
  }
 
  render() {
-   const { back, title, goBack } = this.props;
+   const {
+     back, title, goBack, notification: { onPress, count },
+   } = this.props;
 
    return (
      <SafeAreaViewStyled
@@ -30,14 +39,28 @@ class NavBar extends Component {
          top: 'always',
        }}>
        <ViewStyled>
-         <ViewStyledArrow>
-           {back && (
-           <Touchable onPress={() => goBack()}>
-             <Icon iconName="ArrowBack" />
-           </Touchable>
-           )}
-         </ViewStyledArrow>
+         <If condition={back}>
+           <ViewStyledLeft>
+             <Touchable onPress={() => goBack()}>
+               <Icon iconName="ArrowBack" />
+             </Touchable>
+           </ViewStyledLeft>
+         </If>
          <Text text={title} />
+         <If condition={onPress}>
+           <ViewStyledRight>
+             <Touchable onPress={() => onPress()}>
+               <Choose>
+                 <When condition={count}>
+                   <Icon iconName="NotificationActive" />
+                 </When>
+                 <Otherwise>
+                   <Icon iconName="Notification" />
+                 </Otherwise>
+               </Choose>
+             </Touchable>
+           </ViewStyledRight>
+         </If>
        </ViewStyled>
      </SafeAreaViewStyled>
    );
