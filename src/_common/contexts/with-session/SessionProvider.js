@@ -18,11 +18,25 @@ export const SessionProvider = ({ children }) => {
     return true;
   }, []);
 
+  const putUser = useCallback(async (user) => {
+    await Session.putUser(user);
+
+    return true;
+  }, []);
+
+  const getUser = useCallback(async () => {
+    const user = await Session.getUser();
+
+    return user;
+  }, []);
+
   return (
     <SessionContext.Provider
       value={{
         getToken,
         putToken,
+        getUser,
+        putUser,
       }}>
       {children}
     </SessionContext.Provider>

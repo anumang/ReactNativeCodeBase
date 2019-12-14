@@ -2,9 +2,14 @@
   "welcome": "WELCOME",
   "signin": "SIGN IN",
   "already_member": "Already Member",
+  "register_now": "Register Now",
+  "register_button": "Register",
+  "login_button": "Login",
+  "name": "Name",
   "email": "Email",
   "password": "Password",
   "nav_home_title": "Home",
   "nav_login_title": "Login",
+  "nav_register_title": "Register",
   "nav_profile_title": "Profile"
 }

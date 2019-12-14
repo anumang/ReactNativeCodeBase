@@ -1,38 +1,66 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
-import { Modal } from '../../_common/components/modal';
-import { NavBar } from '../../_common/components/nav-bar';
+import { Modal, NavBar } from '../../_common/components';
+import { withNavigation, withSession } from '../../_common/contexts';
 
-const Home = ({ navigation: { getParam, setParams } }) => (
-  <SafeAreaView
-    forceInset={{
-      bottom: 'always',
-      top: 'never',
-    }}>
-    <Text>
-      Hello Home
-    </Text>
-    <Modal
-      onRequestClose={() => setParams({
-        showNotification: false,
-      })}
-      visible={getParam('showNotification')}>
-      <Text>
-        This is your notification
-      </Text>
-    </Modal>
-  </SafeAreaView>
-);
+@withSession()
+@withNavigation()
+class Home extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      getParam: PropTypes.func.isRequired,
+      setParams: PropTypes.func.isRequired,
+    }).isRequired,
+    getUser: PropTypes.func.isRequired,
+  };
 
-Home.propTypes = {
-  navigation: PropTypes.shape({
-    getParam: PropTypes.func.isRequired,
-    setParams: PropTypes.func.isRequired,
-  }).isRequired,
-};
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: '',
+    };
+  }
+
+  componentDidMount() {
+    const { getUser } = this.props;
+
+    getUser().then((user) => {
+      const { name: userName = '' } = user;
+
+      this.setState({ userName });
+    });
+  }
+
+  render() {
+    const { navigation: { getParam, setParams } } = this.props;
+    const { userName } = this.state;
+
+    return (
+      <SafeAreaView
+        forceInset={{
+          bottom: 'always',
+          top: 'never',
+        }}>
+        <Text>
+          Hello to your Home
+          {userName}
+        </Text>
+        <Modal
+          onRequestClose={() => setParams({
+            showNotification: false,
+          })}
+          visible={getParam('showNotification')}>
+          <Text>
+              This is your notification
+          </Text>
+        </Modal>
+      </SafeAreaView>
+    );
+  }
+}
 
 Home.navigationOptions = ({ navigation: { setParams } }) => ({
   header: () => (

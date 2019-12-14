@@ -1,11 +1,12 @@
 import arrowBack from './arrow-back.png';
+import home from './home.png';
 import notificationActive from './notification-active.png';
 import notification from './notification.png';
-import tabHome from './tab_home.png';
+import profile from './profile.png';
 
 const icons = {
-  Home: tabHome,
-  Profile: tabHome,
+  Home: home,
+  Profile: profile,
   ArrowBack: arrowBack,
   Notification: notification,
   NotificationActive: notificationActive,

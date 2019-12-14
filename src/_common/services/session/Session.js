@@ -36,6 +36,23 @@ class Session {
     return true;
   }
 
+  static async getUser() {
+    const { user } = await Session.getSession();
+
+    return user;
+  }
+
+  static async putUser(user) {
+    const session = await Session.getSession();
+    session.user = user;
+
+    await setItem(Session.SessionKey, JSON.stringify(session));
+
+    Session.Session = session;
+
+    return true;
+  }
+
   static async clear() {
     await clear();
   }

@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
-import { Button } from '../../_common/components/button';
-import { TextField } from '../../_common/components/form-fields';
-import { NavBar } from '../../_common/components/nav-bar';
-import { Text } from '../../_common/components/text';
-import { withNavigation } from '../../_common/contexts/with-navigation';
-import { withTranslation } from '../../_common/contexts/with-translation';
+import {
+  Button, TextField, NavBar, Text
+} from '../../_common/components';
+import { withNavigation, withTranslation } from '../../_common/contexts';
 
 const styles = StyleSheet.create({
   main: {
@@ -22,7 +20,7 @@ const styles = StyleSheet.create({
   },
   body: {
   },
-  footer: {
+  button: {
     paddingVertical: 25,
     flexDirection: 'row',
   },
@@ -34,9 +32,6 @@ class Login extends Component {
   static propTypes = {
     reset: PropTypes.func.isRequired,
     t: PropTypes.func.isRequired,
-    navigation: PropTypes.shape({
-      navigate: PropTypes.func.isRequired,
-    }).isRequired,
   };
 
   static defaultProps = {
@@ -76,8 +71,8 @@ class Login extends Component {
             onSubmitEditing={() => reset('Pages')}
             />
         </View>
-        <View style={styles.footer}>
-          <Button text="Login" onPress={() => reset('Pages')} primary />
+        <View style={styles.button}>
+          <Button text={t('login_button')} onPress={() => reset('Pages')} primary />
         </View>
       </SafeAreaView>
     );

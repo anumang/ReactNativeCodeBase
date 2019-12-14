@@ -13,10 +13,12 @@ import { Home } from './home';
 import { Landing } from './landing';
 import { Login } from './login';
 import { Profile } from './profile';
+import { Register } from './register';
 
 const LandingNavigator = createStackNavigator({
   Landing,
   Login,
+  Register,
 });
 
 const PagesNavigator = createBottomTabNavigator(

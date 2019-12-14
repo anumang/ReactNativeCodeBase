@@ -3,10 +3,8 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
-import { Button } from '../../_common/components/button';
-import { Text } from '../../_common/components/text';
-import { withNavigation } from '../../_common/contexts/with-navigation';
-import { withTranslation } from '../../_common/contexts/with-translation';
+import { Button, Text } from '../../_common/components';
+import { withNavigation, withTranslation } from '../../_common/contexts';
 
 const styles = StyleSheet.create({
   main: {
@@ -19,8 +17,8 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
     alignItems: 'center',
   },
-  footer: {
-    paddingVertical: 50,
+  button: {
+    paddingVertical: 10,
     flexDirection: 'row',
   },
 });
@@ -50,8 +48,11 @@ class Landing extends Component {
         <View style={styles.header}>
           <Text text={t('welcome')} size="heading2" />
         </View>
-        <View style={styles.footer}>
+        <View style={styles.button}>
           <Button text={t('already_member')} onPress={() => navigate('Login')} primary />
+        </View>
+        <View style={styles.button}>
+          <Button text={t('register_now')} onPress={() => navigate('Register')} primary />
         </View>
       </SafeAreaView>
     );
