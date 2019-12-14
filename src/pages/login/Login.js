@@ -18,12 +18,6 @@ const styles = StyleSheet.create({
   header: {
     paddingVertical: 25,
   },
-  body: {
-  },
-  button: {
-    paddingVertical: 25,
-    flexDirection: 'row',
-  },
 });
 
 @withNavigation()
@@ -54,26 +48,22 @@ class Login extends Component {
         <View style={styles.header}>
           <Text text={t('signin')} size="heading2" />
         </View>
-        <View style={styles.body}>
-          <TextField
-            placeholder={t('email')}
-            keyboardType="email-address"
-            returnKeyType="next"
-            onChangeText={(text) => text}
-            onSubmitEditing={() => this.pswRef.current && this.pswRef.current.focus()}
-            />
-          <TextField
-            ref={this.pswRef}
-            placeholder={t('password')}
-            returnKeyType="done"
-            secureTextEntry
-            onChangeText={(password) => password}
-            onSubmitEditing={() => reset('Pages')}
-            />
-        </View>
-        <View style={styles.button}>
-          <Button text={t('login_button')} onPress={() => reset('Pages')} primary />
-        </View>
+        <TextField
+          placeholder={t('email')}
+          keyboardType="email-address"
+          returnKeyType="next"
+          onChangeText={(text) => text}
+          onSubmitEditing={() => this.pswRef.current && this.pswRef.current.focus()}
+          />
+        <TextField
+          ref={this.pswRef}
+          placeholder={t('password')}
+          returnKeyType="done"
+          secureTextEntry
+          onChangeText={(password) => password}
+          onSubmitEditing={() => reset('Pages')}
+          />
+        <Button text={t('login_button')} onPress={() => reset('Pages')} primary />
       </SafeAreaView>
     );
   }

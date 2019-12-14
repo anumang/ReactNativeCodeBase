@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 import { Text } from '../text';
 import { Touchable } from '../touchable';
 
+import { ViewStyled } from './Button.styled';
 
 const Button = ({ text, primary, onPress }) => {
   const borderColor = useMemo(() => ((!primary && 'primary') || undefined), [primary]);
@@ -13,12 +14,14 @@ const Button = ({ text, primary, onPress }) => {
 
 
   return (
-    <Touchable
-      onPress={onPress}
-      backgroundColor={backgroundColor}
-      borderColor={borderColor || backgroundColor}>
-      <Text text={text} size="body1" color={color} />
-    </Touchable>
+    <ViewStyled>
+      <Touchable
+        onPress={onPress}
+        backgroundColor={backgroundColor}
+        borderColor={borderColor || backgroundColor}>
+        <Text text={text} size="body2" color={color} />
+      </Touchable>
+    </ViewStyled>
   );
 };
 

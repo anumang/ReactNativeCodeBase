@@ -1,7 +1,7 @@
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 
 import { Button, NavBar, TextField } from '../../_common/components';
@@ -13,12 +13,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 50,
-  },
-  body: {
-  },
-  button: {
-    paddingVertical: 25,
-    flexDirection: 'row',
   },
 });
 
@@ -77,39 +71,35 @@ class Register extends Component {
           bottom: 'always',
           top: 'never',
         }}>
-        <View style={styles.body}>
-          <TextField
-            onChangeText={(name) => this.setState({ name })}
-            placeholder={t('name')}
-            onSubmitEditing={() =>
-              this.emailRef.current && this.emailRef.current.focus()}
-            returnKeyType="next"
-            />
-          <TextField
-            reference={this.emailRef}
-            keyboardType="email-address"
-            onChangeText={(email) => this.setState({ email })}
-            onSubmitEditing={() =>
-              this.passwordRef.current && this.passwordRef.current.focus()}
-            placeholder={t('email')}
-            returnKeyType="next"
-            />
-          <TextField
-            reference={this.passwordRef}
-            onChangeText={(password) => this.setState({ password })}
-            onSubmitEditing={this.onSubmit}
-            placeholder={t('password')}
-            returnKeyType="done"
-            secureTextEntry
-            />
-          <View style={styles.button}>
-            <Button
-              text={t('register_button')}
-              loading={loading}
-              onPress={this.onSubmit}
-              />
-          </View>
-        </View>
+        <TextField
+          onChangeText={(name) => this.setState({ name })}
+          placeholder={t('name')}
+          onSubmitEditing={() =>
+            this.emailRef.current && this.emailRef.current.focus()}
+          returnKeyType="next"
+          />
+        <TextField
+          reference={this.emailRef}
+          keyboardType="email-address"
+          onChangeText={(email) => this.setState({ email })}
+          onSubmitEditing={() =>
+            this.passwordRef.current && this.passwordRef.current.focus()}
+          placeholder={t('email')}
+          returnKeyType="next"
+          />
+        <TextField
+          reference={this.passwordRef}
+          onChangeText={(password) => this.setState({ password })}
+          onSubmitEditing={this.onSubmit}
+          placeholder={t('password')}
+          returnKeyType="done"
+          secureTextEntry
+          />
+        <Button
+          text={t('register_button')}
+          loading={loading}
+          onPress={this.onSubmit}
+          />
       </SafeAreaView>
     );
   }

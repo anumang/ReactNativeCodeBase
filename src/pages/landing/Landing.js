@@ -17,10 +17,6 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
     alignItems: 'center',
   },
-  button: {
-    paddingVertical: 10,
-    flexDirection: 'row',
-  },
 });
 
 @withNavigation()
@@ -48,12 +44,8 @@ class Landing extends Component {
         <View style={styles.header}>
           <Text text={t('welcome')} size="heading2" />
         </View>
-        <View style={styles.button}>
-          <Button text={t('already_member')} onPress={() => navigate('Login')} primary />
-        </View>
-        <View style={styles.button}>
-          <Button text={t('register_now')} onPress={() => navigate('Register')} primary />
-        </View>
+        <Button text={t('already_member')} onPress={() => navigate('Login')} primary />
+        <Button text={t('register_now')} onPress={() => navigate('Register')} primary />
       </SafeAreaView>
     );
   }
